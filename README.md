@@ -4,10 +4,12 @@
 ### Course Project
 Contains code to read data based on the following study:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
 and the following data:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
 The code expects the study data to be in a folder as unziped, that is "./data/UCI HAR Dataset/".
+
 The output is a summarized data of several of the mean and standard deviation columns for all subject grouped by subject (person studied) and their activties (Walking, Standing, etc.).
 
 ## Code book
