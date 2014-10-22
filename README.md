@@ -12,10 +12,11 @@ The output is a summarized data of several of the mean and standard deviation co
 
 ## Code book
 The mean and standard devation summaries are described in the study above.
+
 The append columns are:
-1. subject - The number of the subject as taken from the study data.
-2. activty - The text label of the activty performed, e.g. WALKING, etc, see the study site for a complete list.
-3-n. <mean values for columns> - The mean of the particular activity performed by the particular subject number.
+1.  subject - The number of the subject as taken from the study data.
+2.  activty - The text label of the activty performed, e.g. WALKING, etc, see the study site for a complete list.
+3-n.    <mean values for columns> - The mean of the particular activity performed by the particular subject number.
 
 #Author
 Mark von der Lieth
