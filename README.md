@@ -25,7 +25,7 @@ Then it builds a core tidy data table, X_tidy, consisting of the activity data w
 
 Using X_tidy it creates a new table, X_tidy_activity_subject, combined with the subject and activity labels for each row.
 
-X_tidy_activity_subject is then arranged and grouped by subject and activity to be summarised on each columns mean. 
+X_tidy_activity_subject is then arranged and grouped by subject and activity to be summarised on each columns mean into X_tidy_mean which is then written to the output text file 'X_tidy_mean.txt'. 
 
 
 ## Code book
