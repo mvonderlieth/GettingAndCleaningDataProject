@@ -29,7 +29,7 @@ X_tidy_activity_subject is then arranged and grouped by subject and activity to 
 
 
 ## Code book
-The mean and standard devation summaries are described in the study above.
+The mean and standard devation summaries are described in the study above.  All data values are from 0 to 1.0 based on the study sensor output.
 
 The append columns are:
 
