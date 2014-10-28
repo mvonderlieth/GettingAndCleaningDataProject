@@ -29,26 +29,10 @@ if (!exists("X_both"))
 }
 
 print ("extracting mean and std column info...")
-# should be a function but for now...
-l = nrow(features)
-c1 = numeric(l)
-c2 = character(l)
-for (r in 1:l)
-{
-    if (grepl("mean\\(",features[r,2]) || grepl("std\\(",features[r,2]))
-    {
-        c1[r] = features[r,1]
-        c2[r] = as.character(features[r,2])
-    }
-    else
-    {
-        c1[r] = NA
-        c2[r] = NA
-    }
-}
-mean_std_features = data.frame(c1,c2,stringsAsFactors=FALSE)
-rownames(mean_std_features) <- NULL
-mean_std_features = mean_std_features[complete.cases(mean_std_features),]
+m_f = features[grepl("mean\\(",features$V2),]
+s_f = features[grepl("std\\(",features$V2),]
+mean_std_features = rbind(m_f,s_f)
+#rm(m_f,s_f)
 
 print ("extracting activity info...")
 # should be a function but for now...
@@ -75,12 +59,10 @@ print ("building average data...")
 X_tidy_mean <- X_tidy_activity_subject %>%
     arrange(subject,activity) %>%
     group_by(subject,activity) %>%
-        summarise_each(funs(mean))
+    summarise_each(funs(mean))
 
 print ("writing average data...")
 write.table(X_tidy_mean,"X_tidy_mean.txt",row.names=FALSE)
 
 print ("done.")
 #end
-
-
