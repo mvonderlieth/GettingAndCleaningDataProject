@@ -35,15 +35,8 @@ mean_std_features = rbind(m_f,s_f)
 #rm(m_f,s_f)
 
 print ("extracting activity info...")
-# should be a function but for now...
-l = nrow(y_both)
-# row name
-rn = character(l)
-for (r in 1:l)
-{
-    rn[r] = as.character(activity_labels[y_both[r,1],2])
-}
-activity_row_labels = data.frame(rn,stringsAsFactors=FALSE)
+# for each row in y_both, take the first column value, say 2, and get the activity_labels[2,2] value, eg. SITTING
+activity_row_labels = data.frame(activity_labels[y_both[,1],2])
 
 print ("building tidy data...")
 mydf = select(X_both,mean_std_features[,1])
