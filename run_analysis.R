@@ -38,18 +38,15 @@ print ("extracting activity info...")
 # for each row in y_both, take the first column value, say 2, and get the activity_labels[2,2] value, eg. SITTING
 activity_row_labels = data.frame(activity_labels[y_both[,1],2])
 
-print ("building tidy data...")
+print ("building tidy basis data...")
 mydf = select(X_both,mean_std_features[,1])
 colnames(mydf) = mean_std_features[,2]
 X_tidy <-tbl_df(mydf)
 
-print ("building tidy activity and subject data...")
-X_tidy_activity_subject = X_tidy %>%
+print ("building tidy activity and subject and average data...")
+X_tidy_mean <- X_tidy %>%
     mutate(activity=activity_row_labels[,1]) %>%
-    mutate(subject=subject_both[,1])
-
-print ("building average data...")
-X_tidy_mean <- X_tidy_activity_subject %>%
+    mutate(subject=subject_both[,1]) %>%
     arrange(subject,activity) %>%
     group_by(subject,activity) %>%
     summarise_each(funs(mean))
